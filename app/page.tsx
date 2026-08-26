@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { ThemeSwitch } from "./components/ThemeProvider";
 
 const trails = [
   { number: "00", title: "Preparando o ambiente", tag: "Trilha completa", tone: "cyan", href: "/trilhas/ambiente" },
@@ -17,10 +17,8 @@ const trails = [
 ];
 
 export default function Home() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
   return (
-    <main className={`home-page theme-${theme}`}>
+    <main className="home-page">
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Página inicial">
@@ -33,10 +31,7 @@ export default function Home() {
             <Link href="/trilhas/select">Laboratório</Link>
             <a href="#downloads">Downloads</a>
           </nav>
-          <div className="theme-switch" role="group" aria-label="Escolher tema da página">
-            <button className={theme === "light" ? "selected" : ""} aria-pressed={theme === "light"} onClick={() => setTheme("light")} title="Usar tema claro"><span aria-hidden="true">☀</span><small>Claro</small></button>
-            <button className={theme === "dark" ? "selected" : ""} aria-pressed={theme === "dark"} onClick={() => setTheme("dark")} title="Usar tema escuro"><span aria-hidden="true">◐</span><small>Escuro</small></button>
-          </div>
+          <ThemeSwitch />
         </div>
       </header>
 

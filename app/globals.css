@@ -1,29 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #f4f7ff;
-  --muted: #92a0b9;
-  --bg: #050913;
-  --surface: #0b1220;
-  --surface-2: #101a2d;
-  --line: rgba(142, 173, 222, 0.14);
-  --cyan: #20d9ff;
-  --blue: #3478ff;
-  --violet: #8b5cf6;
-  --magenta: #ea4fff;
-  --amber: #ffb547;
-  --green: #49e79b;
-  --danger: #ff6b81;
-}
-
-.home-page {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--ink);
-  transition: background-color .25s ease, color .25s ease;
-}
-
-.home-page.theme-light {
   --ink: #10213a;
   --muted: #5d6c82;
   --bg: #f5f8fd;
@@ -39,7 +16,30 @@
   --danger: #c83853;
 }
 
-.home-page.theme-dark {
+.home-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.site-theme.theme-light {
+  --ink: #10213a;
+  --muted: #5d6c82;
+  --bg: #f5f8fd;
+  --surface: #ffffff;
+  --surface-2: #edf4ff;
+  --line: rgba(31, 70, 120, 0.15);
+  --cyan: #007d9c;
+  --blue: #2369e8;
+  --violet: #7048dd;
+  --magenta: #aa31bd;
+  --amber: #aa6500;
+  --green: #16875a;
+  --danger: #c83853;
+}
+
+.site-theme.theme-dark {
   --ink: #f4f7ff;
   --muted: #92a0b9;
   --bg: #050913;
@@ -58,6 +58,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.site-theme { min-height: 100vh; background: var(--bg); color: var(--ink); transition: background-color .25s ease, color .25s ease; }
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
@@ -80,6 +81,9 @@ button { font: inherit; }
 .theme-switch button span { font-size: .9rem; }
 .theme-switch button small { font-size: .68rem; }
 .theme-switch button.selected { background: var(--surface-2); color: var(--ink); box-shadow: 0 2px 8px rgba(14, 38, 72, .1); }
+.trail-theme-control { position: fixed; top: 22px; right: max(28px, calc((100vw - 1240px) / 2 + 28px)); z-index: 80; }
+.trail-theme-control .theme-switch { backdrop-filter: blur(14px); }
+.trail-page .site-header { padding-right: 180px; }
 
 .hero { max-width: 1240px; min-height: 670px; margin: auto; padding: 90px 28px 70px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 72px; align-items: center; position: relative; isolation: isolate; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; opacity: .16; background-image: linear-gradient(rgba(80,126,200,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(80,126,200,.14) 1px, transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(to right, #000, transparent 72%); }
@@ -176,7 +180,7 @@ code { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
 footer { min-height: 150px; max-width: 1184px; margin: auto; border-top: 1px solid var(--line); padding: 45px 0; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: .75rem; }
 footer > a { color: #cbd6e8; }
 
-/* Light theme: homepage only */
+/* Light theme */
 .theme-light .site-header nav { color: #40516a; }
 .theme-light .brand-mark { color: #ffffff; }
 .theme-light .hero::before { opacity: .32; }
@@ -241,6 +245,107 @@ footer > a { color: #cbd6e8; }
 .theme-light .schema-node.node-b { border-color: rgba(112,72,221,.30); }
 .theme-light .schema-node.node-c { border-color: rgba(170,101,0,.32); }
 .theme-light .schema-node.node-d { border-color: rgba(22,135,90,.32); }
+
+/* Light theme across every learning trail. Code consoles intentionally stay dark. */
+.theme-light .trail-page { color: var(--ink); }
+.theme-light .trail-page .site-header { background: rgba(245,248,253,.82); backdrop-filter: blur(14px); }
+.theme-light .trail-page article { background: rgba(255,255,255,.90); box-shadow: 0 10px 30px rgba(29,67,119,.05); }
+.theme-light .trail-hero p,
+.theme-light .lead { color: var(--muted); }
+.theme-light .lesson-chips span { color: #53657e; background: rgba(255,255,255,.78); }
+.theme-light .trail-mission-brief,
+.theme-light .lesson-nav,
+.theme-light .mission-card,
+.theme-light .setup-activity,
+.theme-light .foundation-activity,
+.theme-light .structure-activity,
+.theme-light .select-activity,
+.theme-light .filter-activity,
+.theme-light .manipulation-activity,
+.theme-light .analysis-activity,
+.theme-light .join-activity,
+.theme-light .subquery-activity,
+.theme-light .final-sprint-card {
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 14px 38px rgba(29,67,119,.07);
+}
+.theme-light .lesson-nav > a:not(.back-home) { color: #566981; }
+.theme-light .lesson-nav a small { color: #7a899d; }
+.theme-light .lesson-nav a.current { background: rgba(0,125,156,.08); }
+.theme-light .mission-target span,
+.theme-light .pretty-row { color: #40536c; }
+.theme-light .concept-duel article,
+.theme-light .ecosystem-flow article,
+.theme-light .setup-concepts article,
+.theme-light .information-pipeline article,
+.theme-light .type-grid article,
+.theme-light .select-choice article,
+.theme-light .aggregate-deck article,
+.theme-light .report-pipeline article,
+.theme-light .delivery-architecture article,
+.theme-light .outer-query,
+.theme-light .executive-board,
+.theme-light .course-complete {
+  background: rgba(255,255,255,.86);
+  box-shadow: 0 10px 30px rgba(29,67,119,.055);
+}
+.theme-light .table-anatomy,
+.theme-light .alter-gallery article { background: #eef4fb; }
+.theme-light .key-card,
+.theme-light .bridge-diagram article,
+.theme-light .metric-forge > div.metric-output { background: #ffffff; }
+.theme-light .key-card b,
+.theme-light .key-rules b,
+.theme-light .bridge-diagram b,
+.theme-light .metric-forge b,
+.theme-light .alias-rules p b,
+.theme-light .count-null-note code,
+.theme-light .cte-note code { color: var(--ink); }
+.theme-light .anatomy-row span { color: #40536c; }
+.theme-light .anatomy-head span { background: #e3edf8; }
+.theme-light .anatomy-row.highlighted span { color: #1f3655; background: rgba(35,105,232,.08); }
+.theme-light .safety-check > span,
+.theme-light .safety-check div,
+.theme-light .foreign-key-wall > div,
+.theme-light .foreign-key-wall > p,
+.theme-light .join-reading-order > span,
+.theme-light .join-reading-order > div,
+.theme-light .executive-board article,
+.theme-light .quality-score,
+.theme-light .quality-list span { background: #ffffff; }
+.theme-light .foreign-key-wall div b,
+.theme-light .executive-board article span,
+.theme-light .quality-list span { color: #40536c; }
+.theme-light .explanation-grid p { background: #f5f8fd; }
+.theme-light .trail-page .code-panel,
+.theme-light .trail-page .solution-panel,
+.theme-light .trail-page .error-lab,
+.theme-light .trail-page .workbench-map,
+.theme-light .trail-page .project-file-map {
+  --ink: #f4f7ff;
+  --muted: #92a0b9;
+  --line: rgba(142,173,222,.14);
+  --cyan: #20d9ff;
+  --blue: #3478ff;
+  --magenta: #ea4fff;
+  --amber: #ffb547;
+  --green: #49e79b;
+  color: #f4f7ff;
+}
+.theme-light .boss-card {
+  background: radial-gradient(circle at top, rgba(35,105,232,.08), transparent 52%), #ffffff;
+  box-shadow: 0 16px 42px rgba(29,67,119,.07);
+}
+.theme-light .final-boss,
+.theme-light .subquery-boss {
+  background: radial-gradient(circle at top, rgba(170,101,0,.10), transparent 52%), #ffffff;
+}
+.theme-light .manipulation-boss,
+.theme-light .analysis-boss,
+.theme-light .join-boss {
+  background: radial-gradient(circle at top, rgba(170,49,189,.09), transparent 52%), #ffffff;
+}
+.theme-light .course-complete::after { color: rgba(35,105,232,.055); }
 
 /* Trail page */
 .trail-page { background: radial-gradient(circle at 90% 8%, rgba(139,92,246,.12), transparent 30%), var(--bg); min-height: 100vh; }
@@ -547,6 +652,8 @@ footer > a { color: #cbd6e8; }
 
 @media (max-width: 680px) {
   .site-header { min-height: 68px; padding: 0 18px; }
+  .trail-page .site-header { padding-right: 112px; }
+  .trail-theme-control { top: 15px; right: 18px; }
   .site-header nav { display: none; }
   .header-actions { gap: 0; }
   .theme-switch button { min-width: 38px; justify-content: center; padding: 0 8px; }
