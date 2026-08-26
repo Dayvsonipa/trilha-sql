@@ -1,0 +1,34 @@
+SQL DO ZERO AO AVANCADO — TRILHA 02
+GUIA DE TIPOS E RESTRICOES
+
+TIPOS ESSENCIAIS
+INT             numero inteiro
+VARCHAR(n)      texto de tamanho variavel
+DECIMAL(10,2)   numero exato com duas casas decimais
+DATE            data sem horario
+DATETIME        data e horario
+BOOLEAN         verdadeiro ou falso
+
+RESTRICOES ESSENCIAIS
+PRIMARY KEY     identifica cada linha
+AUTO_INCREMENT  gera o proximo numero automaticamente
+NOT NULL        exige um valor
+UNIQUE          impede repeticao
+DEFAULT         aplica um valor quando ele e omitido
+CHECK           exige que uma condicao seja verdadeira
+FOREIGN KEY     cria referencia para outra tabela
+
+COMANDOS DE ESTRUTURA
+CREATE DATABASE nome;
+USE nome;
+CREATE TABLE nome (...);
+DESCRIBE nome;
+ALTER TABLE nome ADD COLUMN ...;
+ALTER TABLE nome MODIFY COLUMN ...;
+ALTER TABLE nome DROP COLUMN ...;
+
+ANTES DE CREATE, ALTER OU DROP
+1. Confirme a conexao.
+2. Confirme o banco selecionado.
+3. Leia todo o comando.
+4. Em ambiente real, tenha backup e plano de retorno.

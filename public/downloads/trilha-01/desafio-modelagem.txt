@@ -1,0 +1,30 @@
+SQL DO ZERO AO AVANCADO — TRILHA 01
+DESAFIO DE MODELAGEM — CENTRAL DE SUPORTE
+
+CONTEXTO
+A LevelUp Store criara uma central de suporte. Clientes abrem
+chamados, e cada chamado e atendido por um funcionario.
+
+O sistema precisa guardar:
+- clientes: identificacao, nome e e-mail;
+- atendentes: identificacao, nome e equipe;
+- chamados: identificacao, titulo, descricao, data, status,
+  cliente responsavel e atendente responsavel.
+
+SUA MISSAO
+1. Identifique as entidades.
+2. Liste as colunas de cada tabela.
+3. Escolha uma chave primaria para cada tabela.
+4. Indique as chaves estrangeiras.
+5. Descreva a cardinalidade dos relacionamentos.
+6. Desenhe o modelo no papel usando caixas e linhas.
+
+PERGUNTAS PARA REVISAR SUA PROPOSTA
+- Cada chamado pode ser identificado sem ambiguidade?
+- E possivel descobrir quem abriu o chamado?
+- E possivel descobrir quem esta atendendo?
+- Um cliente pode abrir mais de um chamado?
+- Um atendente pode cuidar de mais de um chamado?
+
+Nao ha apenas um desenho visual correto. Sua solucao precisa
+representar todas as regras descritas acima.

@@ -1,0 +1,53 @@
+SQL DO ZERO AO AVANCADO | TRILHA 04
+GUIA RAPIDO DE FILTROS E BUSCAS
+
+ORDEM MAIS USADA
+SELECT colunas
+FROM tabela
+WHERE condicoes
+ORDER BY coluna
+LIMIT quantidade;
+
+COMPARACOES
+=   igual a
+<>  diferente de (o MySQL tambem aceita !=)
+>   maior que
+>=  maior ou igual a
+<   menor que
+<=  menor ou igual a
+
+LOGICA
+AND  todas as condicoes precisam ser verdadeiras
+OR   ao menos uma condicao precisa ser verdadeira
+NOT  inverte o resultado da condicao
+
+ATALHOS
+BETWEEN inicio AND fim
+Inclui os dois limites.
+
+IN (opcao1, opcao2, opcao3)
+Compara uma coluna com uma lista de opcoes.
+
+PADROES COM LIKE
+%  qualquer quantidade de caracteres
+_  exatamente um caractere
+
+Exemplos:
+nome LIKE 'A%'   -> comeca com A
+nome LIKE '%Pro' -> termina com Pro
+nome LIKE '%game%' -> contem game
+nome LIKE '_na%' -> um caractere antes de na
+
+VALORES AUSENTES
+IS NULL      encontra ausencias
+IS NOT NULL  encontra valores preenchidos
+
+Nunca use = NULL ou <> NULL.
+
+LEMBRETES
+- Textos e datas usam aspas simples.
+- Numeros nao precisam de aspas.
+- AND e avaliado antes de OR.
+- Use parenteses para deixar a intencao explicita.
+- Execute primeiro sem ORDER BY e LIMIT quando estiver investigando.
+- Confira se cada linha retornada realmente obedece a regra do problema.

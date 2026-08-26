@@ -1,0 +1,60 @@
+SQL DO ZERO AO AVANCADO | TRILHA 06
+GUIA RAPIDO DE FUNCOES E ANALISE
+
+CALCULOS POR LINHA
++  soma
+-  subtracao
+*  multiplicacao
+/  divisao
+ROUND(valor, casas)  arredonda um numero
+
+Exemplo:
+ROUND(preco * estoque, 2) AS valor_em_estoque
+
+FUNCOES DE TEXTO
+UPPER(texto)         converte para maiusculas
+LOWER(texto)         converte para minusculas
+CONCAT(a, b, c)      combina valores
+CHAR_LENGTH(texto)   conta caracteres
+
+FUNCOES DE DATA
+YEAR(data)            extrai o ano
+MONTH(data)           extrai o mes
+DAY(data)             extrai o dia
+DATE_FORMAT(data, formato) apresenta a data em outro formato
+DATEDIFF(a, b)        calcula dias entre duas datas
+CURDATE()             data atual do servidor
+
+Formatos comuns no DATE_FORMAT:
+%d  dia com dois digitos
+%m  mes com dois digitos
+%Y  ano com quatro digitos
+
+FUNCOES DE AGREGACAO
+COUNT(*)         quantidade de linhas
+COUNT(coluna)    valores nao nulos da coluna
+SUM(coluna)      soma
+AVG(coluna)      media
+MIN(coluna)      menor valor
+MAX(coluna)      maior valor
+
+AGRUPAMENTO
+GROUP BY coluna
+Cria um grupo para cada valor diferente da coluna.
+
+WHERE filtra linhas antes do agrupamento.
+HAVING filtra grupos depois da agregacao.
+
+ORDEM LOGICA MAIS USADA
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+
+REGRA DE OURO
+Ao usar GROUP BY, cada item do SELECT deve ser:
+- a coluna usada para formar o grupo; ou
+- o resultado de uma funcao agregadora.

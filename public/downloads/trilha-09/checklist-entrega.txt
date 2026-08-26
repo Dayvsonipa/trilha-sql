@@ -1,0 +1,33 @@
+CHECKLIST — PROJETO FINAL LEVELUP STORE
+
+ARQUIVO
+[ ] O arquivo se chama projeto-final.sql.
+[ ] O arquivo começa com USE levelup_store;.
+[ ] Meu nome e a data estão no cabeçalho.
+[ ] Cada entrega está separada por comentários.
+
+EXECUÇÃO
+[ ] As cinco consultas executam sem erro no MySQL Workbench.
+[ ] Executei cada consulta separadamente.
+[ ] Usei as chaves corretas em todos os JOINs.
+[ ] Considerei PAGO, EM_TRANSPORTE e ENTREGUE como pedidos válidos.
+[ ] Calculei faturamento com quantidade × preço_unitario.
+[ ] Evitei duplicar pedidos ao conectar itens_pedido.
+
+QUALIDADE DO RESULTADO
+[ ] Usei aliases legíveis.
+[ ] Conferi ao menos um registro de cada relatório manualmente.
+[ ] Verifiquei valores NULL e resultados vazios.
+[ ] A ordenação ajuda a ler a resposta.
+[ ] Minhas conclusões são sustentadas pelos dados.
+[ ] Minhas recomendações não prometem algo que a base não comprova.
+
+APRESENTAÇÃO
+[ ] Consigo explicar a pergunta de cada relatório.
+[ ] Consigo explicar por que escolhi cada tabela.
+[ ] Consigo explicar os filtros aplicados.
+[ ] Consigo mostrar a linha ou o total que sustenta minha conclusão.
+[ ] Criei uma investigação autoral relevante.
+
+ÚLTIMA PERGUNTA
+Se alguém alterar os dados e executar meu arquivo novamente, os relatórios continuarão funcionando?

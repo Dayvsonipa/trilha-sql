@@ -1,0 +1,35 @@
+SQL DO ZERO AO AVANCADO — TRILHA 03
+GUIA RAPIDO DE CONSULTAS
+
+SELECT
+Escolhe colunas ou expressoes que aparecerao no resultado.
+
+FROM
+Informa de qual tabela os dados serao lidos.
+
+AS
+Cria um apelido temporario para uma coluna no resultado.
+
+DISTINCT
+Remove combinacoes repetidas das colunas exibidas.
+
+ORDER BY
+Organiza o resultado por uma ou mais colunas.
+ASC  = crescente, opcao padrao.
+DESC = decrescente.
+
+LIMIT
+Mantem somente a quantidade solicitada de linhas.
+
+ORDEM DE ESCRITA
+SELECT colunas
+FROM tabela
+ORDER BY coluna ASC ou DESC
+LIMIT quantidade;
+
+BOAS PRATICAS
+- Selecione apenas as colunas necessarias.
+- Use apelidos que ajudem quem le o resultado.
+- Nunca dependa da ordem natural da tabela.
+- Para um ranking, ordene antes de limitar.
+- Termine cada instrucao com ponto e virgula.

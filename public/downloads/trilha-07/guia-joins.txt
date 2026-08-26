@@ -1,0 +1,58 @@
+SQL DO ZERO AO AVANCADO | TRILHA 07
+GUIA RAPIDO DE JOINS
+
+IDEIA CENTRAL
+JOIN conecta linhas de tabelas diferentes.
+ON descreve quais colunas representam a mesma identidade.
+
+MODELO BASICO
+SELECT a.coluna, b.coluna
+FROM tabela_a AS a
+INNER JOIN tabela_b AS b
+  ON a.chave_estrangeira = b.chave_primaria;
+
+INNER JOIN
+Mantem somente linhas que possuem correspondencia nos dois lados.
+
+LEFT JOIN
+Mantem todas as linhas da tabela a esquerda.
+Quando nao existe par na direita, as colunas da direita ficam NULL.
+
+ENCONTRANDO AUSENCIAS
+FROM clientes AS c
+LEFT JOIN pedidos AS p
+  ON p.id_cliente = c.id_cliente
+WHERE p.id_pedido IS NULL
+
+MAPA DE CHAVES DA LEVELUP STORE
+produtos.id_categoria       = categorias.id_categoria
+pedidos.id_cliente          = clientes.id_cliente
+itens_pedido.id_pedido      = pedidos.id_pedido
+itens_pedido.id_produto     = produtos.id_produto
+pagamentos.id_pedido        = pedidos.id_pedido
+avaliacoes.id_cliente       = clientes.id_cliente
+avaliacoes.id_produto       = produtos.id_produto
+
+APELIDOS RECOMENDADOS
+c   clientes ou categorias, de acordo com o contexto
+p   produtos
+pe  pedidos
+ip  itens_pedido
+pg  pagamentos
+a   avaliacoes
+
+Para evitar conflito, escolha apelidos distintos na mesma consulta.
+
+ROTINA SEGURA PARA MONTAR UMA CADEIA
+1. Comece pela tabela central da pergunta.
+2. Adicione apenas uma tabela por vez.
+3. Escreva o ON imediatamente apos cada JOIN.
+4. Execute e confira o resultado.
+5. So depois acrescente a proxima tabela.
+
+ERROS A EVITAR
+- Ligar colunas apenas porque possuem numeros parecidos.
+- Omitir o apelido em uma coluna ambigua.
+- Esquecer a condicao ON.
+- Usar COUNT(*) em um LEFT JOIN quando deseja contar zero no lado direito.
+- Colocar no WHERE um filtro que elimina os NULLs que deveriam ser preservados.

@@ -1,0 +1,34 @@
+SQL DO ZERO AO AVANCADO | TRILHA 05
+CHECKLIST DE SEGURANCA PARA ALTERAR DADOS
+
+ANTES DA ALTERACAO
+[ ] Estou usando o banco correto? Execute: USE levelup_store;
+[ ] Entendi qual tabela sera alterada?
+[ ] Sei exatamente quais linhas devem ser atingidas?
+[ ] Executei um SELECT com o mesmo WHERE?
+[ ] O resultado do SELECT contem somente os alvos esperados?
+[ ] Ha chaves estrangeiras ou outros relacionamentos envolvidos?
+
+DURANTE A ALTERACAO
+[ ] INSERT: colunas e valores estao na mesma ordem?
+[ ] INSERT: respeitei NOT NULL, UNIQUE e FOREIGN KEY?
+[ ] UPDATE: inclui WHERE?
+[ ] UPDATE: o filtro usa uma coluna precisa, de preferencia uma chave?
+[ ] DELETE: confirmei que a remocao e realmente necessaria?
+[ ] Se a mudanca for sensivel, iniciei uma transacao?
+
+DEPOIS DA ALTERACAO
+[ ] Executei outro SELECT para conferir o novo estado?
+[ ] Observei quantas linhas foram afetadas pelo Workbench?
+[ ] O resultado corresponde a regra do problema?
+[ ] Se algo ficou errado, usei ROLLBACK antes do COMMIT?
+[ ] Se tudo ficou correto e deve ser permanente, usei COMMIT?
+
+COMANDOS-CHAVE
+START TRANSACTION;  inicia uma transacao
+COMMIT;             confirma as alteracoes
+ROLLBACK;           desfaz alteracoes ainda nao confirmadas
+
+REGRA DE OURO
+Nunca execute UPDATE ou DELETE sem conseguir explicar, antes da execucao,
+quais linhas o WHERE ira selecionar.

@@ -1,0 +1,36 @@
+TRILHA 08 — GUIA RÁPIDO DE SUBCONSULTAS
+Banco: levelup_store | MySQL 8+
+
+QUAL FORMATO A CONSULTA INTERNA DEVOLVE?
+
+1. UM VALOR
+Use operadores simples: =, >, <, >=, <=
+Exemplo: preco > (SELECT AVG(preco) FROM produtos)
+
+2. UMA LISTA
+Use IN para verificar se um valor pertence à lista.
+Exemplo: id_cliente IN (SELECT id_cliente FROM pedidos)
+
+3. EXISTÊNCIA
+Use EXISTS ou NOT EXISTS quando importa saber se há correspondência.
+Exemplo: NOT EXISTS (SELECT 1 FROM itens_pedido ip WHERE ...)
+
+4. UMA ETAPA DE RELATÓRIO
+Use WITH para nomear uma CTE e consultar o resultado intermediário.
+Exemplo: WITH vendas AS (...) SELECT * FROM vendas;
+
+ORDEM LÓGICA PARA INVESTIGAR
+1. Execute a consulta interna isoladamente.
+2. Observe se ela devolve um valor, uma lista ou várias colunas.
+3. Conecte-a à consulta externa.
+4. Execute o conjunto e confira alguns resultados manualmente.
+
+CUIDADOS IMPORTANTES
+- = não aceita uma subconsulta com várias linhas.
+- NOT IN pode falhar silenciosamente quando a lista contém NULL.
+- Em uma subconsulta correlacionada, confira os apelidos interno e externo.
+- Uma CTE existe apenas durante a instrução em que foi declarada.
+- WITH está disponível no MySQL 8.0 ou superior.
+
+PERGUNTA-CHAVE
+“A resposta de dentro tem o formato que a pergunta de fora espera?”

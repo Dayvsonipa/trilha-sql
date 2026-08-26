@@ -1,0 +1,23 @@
+SQL DO ZERO AO AVANCADO — TRILHA 00
+CHECKLIST RAPIDO
+
+1. Instale o MySQL Server e o MySQL Workbench.
+2. Durante a configuracao, guarde a senha do usuario root.
+3. No Workbench, crie a conexao "LevelUp Local":
+   - Hostname: localhost
+   - Port: 3306
+   - Username: root
+4. Teste e abra a conexao.
+5. Abra levelup-store-inicial.sql em File > Open SQL Script.
+6. Execute o script completo usando o icone de raio.
+7. Atualize a area SCHEMAS.
+8. Confirme o banco com:
+
+   USE levelup_store;
+   SELECT DATABASE();
+   SHOW TABLES;
+
+Resultado esperado: o schema levelup_store e sete tabelas.
+
+Se ocorrer um erro, leia a mensagem completa e compare com o
+Laboratorio de Erros da Trilha 00 antes de tentar novamente.

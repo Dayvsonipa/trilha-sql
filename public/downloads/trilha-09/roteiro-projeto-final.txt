@@ -1,0 +1,58 @@
+TRILHA 09 — PROJETO FINAL
+Consultoria SQL para a LevelUp Store
+
+MISSÃO
+Transformar o banco levelup_store em um diagnóstico executivo capaz de apoiar decisões sobre operação, vendas, estoque e clientes.
+
+ENTREGÁVEIS
+1. Um arquivo projeto-final.sql com cinco seções.
+2. Quatro relatórios obrigatórios executáveis.
+3. Uma investigação autoral.
+4. Uma conclusão e uma recomendação para cada relatório.
+5. Uma apresentação curta defendendo as escolhas feitas.
+
+RELATÓRIO 1 — RAIO-X DA OPERAÇÃO
+Entregue uma linha com:
+- total de produtos ativos;
+- total de clientes;
+- total de pedidos válidos;
+- faturamento calculado por quantidade × preço unitário.
+
+RELATÓRIO 2 — CATEGORIAS QUE MOVEM A LOJA
+Mostre:
+- nome da categoria;
+- quantidade de itens vendidos;
+- faturamento;
+- ordem do maior para o menor faturamento.
+
+RELATÓRIO 3 — ESTOQUE SOB INVESTIGAÇÃO
+Mostre produtos com estoque zero ou nunca vendidos, incluindo:
+- produto;
+- categoria;
+- estoque;
+- total já vendido.
+
+RELATÓRIO 4 — CLIENTES DE ALTO VALOR
+Use uma CTE para mostrar clientes que gastaram acima da média dos compradores:
+- cliente;
+- quantidade de pedidos;
+- total comprado.
+
+RELATÓRIO 5 — INVESTIGAÇÃO AUTORAL
+Crie uma nova pergunta de negócio. Sua consulta deve usar:
+- ao menos um JOIN;
+- uma função de agregação;
+- um filtro;
+- aliases legíveis.
+
+STATUS DE PEDIDOS VÁLIDOS
+PAGO, EM_TRANSPORTE e ENTREGUE.
+
+PARA CADA RELATÓRIO, RESPONDA
+1. O que o resultado mostra?
+2. Por que isso importa?
+3. Qual ação você recomenda?
+4. Qual limite dos dados precisa ser considerado?
+
+REGRA DE OURO
+Não basta executar. Você precisa conseguir explicar por que a consulta responde à pergunta.

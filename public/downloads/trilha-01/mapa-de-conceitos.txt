@@ -1,0 +1,43 @@
+SQL DO ZERO AO AVANCADO — TRILHA 01
+MAPA DE CONCEITOS
+
+DADO
+Valor bruto e isolado. Exemplo: 12.
+
+INFORMACAO
+Dado interpretado dentro de um contexto.
+Exemplo: restam 12 teclados no estoque.
+
+BANCO DE DADOS
+Conjunto estruturado de dados relacionados, organizado para
+registro, consulta, atualizacao e protecao.
+
+TABELA
+Representa um tipo de entidade do mundo real.
+Exemplos: clientes, produtos e pedidos.
+
+COLUNA / ATRIBUTO
+Caracteristica comum aos registros de uma tabela.
+Exemplos: nome, preco e estoque.
+
+LINHA / REGISTRO
+Uma ocorrencia individual da entidade.
+Exemplo: um produto especifico.
+
+CAMPO
+Valor encontrado no encontro de uma linha com uma coluna.
+
+CHAVE PRIMARIA (PK)
+Identifica cada registro de modo unico e obrigatorio.
+
+CHAVE ESTRANGEIRA (FK)
+Aponta para a chave primaria de outra tabela e cria uma ligacao.
+
+CARDINALIDADE
+1:1  — um registro se relaciona com um registro.
+1:N  — um registro se relaciona com varios registros.
+N:N  — varios se relacionam com varios; normalmente exige uma
+       tabela intermediaria.
+
+PERGUNTA-GUIA
+Que regra do mundo real esse relacionamento representa?
