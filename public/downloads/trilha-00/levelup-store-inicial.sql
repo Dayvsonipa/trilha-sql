@@ -88,7 +88,8 @@ INSERT INTO categorias (nome) VALUES
 INSERT INTO clientes (nome, email, cidade, data_cadastro) VALUES
   ('Ana Souza', 'ana@exemplo.com', 'Sao Paulo', '2026-02-03'),
   ('Bruno Lima', 'bruno@exemplo.com', 'Campinas', '2026-02-12'),
-  ('Carla Mendes', 'carla@exemplo.com', 'Santos', '2026-03-01');
+  ('Carla Mendes', 'carla@exemplo.com', 'Santos', '2026-03-01'),
+  ('Eduardo Nunes', 'eduardo@exemplo.com', 'Sao Paulo', '2026-03-15');
 
 INSERT INTO produtos (id_categoria, nome, preco, estoque, ativo) VALUES
   (1, 'Mouse HyperX Pulsefire', 249.90, 18, TRUE),

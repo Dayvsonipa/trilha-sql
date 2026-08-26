@@ -119,13 +119,13 @@ export default function Home() {
           <Link className="text-link" href="/trilhas/select">Conhecer a LevelUp Store →</Link>
         </div>
         <div className="schema-card" aria-label="Relacionamentos do banco LevelUp Store">
-          <div className="schema-title"><span>LEVELUP_STORE</span><small>7 tabelas conectadas</small></div>
+          <div className="schema-title"><span>LEVELUP_STORE</span><small>5 das 7 tabelas</small></div>
           <div className="schema-map">
-            <div className="schema-node node-a"><b>categorias</b><small>1 : N</small></div>
-            <div className="schema-node node-b"><b>produtos</b><small>40 registros</small></div>
-            <div className="schema-node node-c"><b>itens_pedido</b><small>tabela associativa</small></div>
-            <div className="schema-node node-d"><b>pedidos</b><small>60 registros</small></div>
-            <div className="schema-node node-e"><b>clientes</b><small>1 : N</small></div>
+            <div className="schema-node node-a"><b>categorias</b><small>4 registros</small></div>
+            <div className="schema-node node-b"><b>produtos</b><small>6 registros</small></div>
+            <div className="schema-node node-c"><b>itens_pedido</b><small>4 registros</small></div>
+            <div className="schema-node node-d"><b>pedidos</b><small>3 registros</small></div>
+            <div className="schema-node node-e"><b>clientes</b><small>4 registros</small></div>
           </div>
         </div>
       </section>
@@ -133,8 +133,8 @@ export default function Home() {
       <section className="section download-section" id="downloads">
         <div className="download-card">
           <div className="download-icon">DB</div>
-          <div><span className="section-kicker">ARQUIVO DE EXEMPLO</span><h2>Leve a LevelUp Store para o Workbench.</h2><p>Baixe uma amostra do banco usada no protótipo e execute suas primeiras consultas.</p></div>
-          <a className="button button-primary" href="/downloads/levelup-store-amostra.sql" download>Baixar banco <span>↓</span></a>
+          <div><span className="section-kicker">BANCO OFICIAL DO CURSO</span><h2>Leve a LevelUp Store para o Workbench.</h2><p>Baixe o mesmo banco utilizado em todas as trilhas e execute as atividades no Workbench.</p></div>
+          <a className="button button-primary" href="/downloads/trilha-00/levelup-store-inicial.sql" download>Baixar banco <span>↓</span></a>
         </div>
       </section>
 
