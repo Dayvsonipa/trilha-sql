@@ -1,0 +1,664 @@
+/*
+ * Camada de alinhamento visual com o portal Lógica e C.
+ * Mantém a paleta MySQL e sobrescreve apenas geometria, tipografia e navegação.
+ */
+
+html,
+body,
+.site-theme {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  font-family: "Segoe UI Variable Display", "Aptos Display", Inter,
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Alternador compacto, equivalente ao portal C */
+.theme-toggle {
+  display: inline-grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  color: var(--ink);
+  box-shadow: 0 8px 24px rgba(18, 46, 84, 0.08);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--cyan) 45%, var(--line));
+}
+
+.theme-toggle span {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-toggle small {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Cabeçalho da página inicial */
+.home-page > .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: grid;
+  width: 100%;
+  max-width: none;
+  min-height: 5rem;
+  grid-template-columns: minmax(15rem, 1fr) auto minmax(3rem, 1fr);
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding-inline:
+    max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.home-page > .site-header .brand {
+  justify-self: start;
+}
+
+.home-page > .site-header nav {
+  display: flex;
+  justify-self: center;
+  gap: 2rem;
+  color: var(--muted);
+  font-size: 0.91rem;
+  font-weight: 800;
+}
+
+.home-page > .site-header nav a {
+  position: relative;
+  padding: 0.7rem 0.05rem;
+}
+
+.home-page > .site-header nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.35rem;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.home-page > .site-header nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.home-page > .site-header > .theme-toggle {
+  justify-self: end;
+}
+
+.brand {
+  gap: 0.85rem;
+}
+
+.brand-mark {
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 0.9rem;
+  color: #fff;
+  font-size: 1.08rem;
+}
+
+.brand strong {
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.brand small {
+  margin-top: 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+/* Hero com as mesmas proporções do portal C */
+.hero {
+  width: 100%;
+  max-width: 80rem;
+  min-height: 39.75rem;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 2.5rem;
+  padding: 5rem 2rem;
+  overflow: clip;
+}
+
+.hero::before {
+  opacity: 0.26;
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to right, #000, transparent 84%);
+}
+
+.hero-glow {
+  pointer-events: none;
+}
+
+.glow-one {
+  left: -10rem;
+}
+
+.glow-two {
+  right: -6rem;
+}
+
+.hero h1 {
+  max-width: 48rem;
+  margin: 1.25rem 0 1.25rem;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.hero-copy > p {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.125rem;
+  line-height: 2rem;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+}
+
+.button {
+  min-height: 3.1rem;
+  border-radius: 0.75rem;
+  padding-inline: 1.25rem;
+}
+
+.hero-facts {
+  display: grid;
+  max-width: 42rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero-facts span,
+.hero-facts span:first-child {
+  min-width: 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.hero-facts strong {
+  display: block;
+  margin: 0 0 0.12rem;
+  font-size: 0.95rem;
+}
+
+.query-console {
+  align-self: center;
+  border-radius: 1rem;
+  transform: none;
+}
+
+.console-top {
+  height: 2.6rem;
+}
+
+.query-console pre {
+  padding: 1.35rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.result-label {
+  padding-block: 0.65rem;
+}
+
+.result-row {
+  padding-block: 0.4rem;
+}
+
+.console-note {
+  padding: 0.75rem;
+}
+
+/* Seções e cartões da home */
+.section {
+  max-width: 80rem;
+  padding: 5rem 2rem;
+}
+
+.section-heading h2,
+.levelup-copy h2,
+.download-card h2,
+.lesson-section h2 {
+  letter-spacing: -0.03em;
+}
+
+.trail-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trail-card {
+  min-height: 10.5rem;
+  align-items: flex-start;
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.trail-orb {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.9rem;
+}
+
+.method-section > * {
+  max-width: 76rem;
+}
+
+.method-grid {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.download-card {
+  border-radius: 1rem;
+}
+
+footer {
+  max-width: 76rem;
+}
+
+/* Casca compartilhada das trilhas */
+.track-brand-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 72;
+  width: 18rem;
+  border-right: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 96%, var(--bg));
+}
+
+.track-brand-panel .brand {
+  width: 100%;
+  min-height: 5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.track-brand-panel .brand small {
+  font-size: 0.56rem;
+}
+
+.track-topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 18rem;
+  z-index: 75;
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.track-topbar-start {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.track-menu-button {
+  display: none;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.track-heading {
+  min-width: 0;
+}
+
+.track-heading small,
+.track-heading strong {
+  display: block;
+}
+
+.track-heading small {
+  color: var(--cyan);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.track-heading strong {
+  overflow: hidden;
+  margin-top: 0.12rem;
+  font-size: 0.86rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trail-page {
+  padding-left: 18rem;
+  background: var(--bg);
+}
+
+.trail-page > .site-header {
+  display: none;
+}
+
+.trail-hero {
+  width: 100%;
+  max-width: 64rem;
+  padding: 7rem 2rem 2rem;
+}
+
+.breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.trail-hero-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.trail-hero h1 {
+  max-width: 48rem;
+  margin: 1rem 0 1.2rem;
+  font-size: clamp(2.5rem, 5vw, 3.35rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.trail-hero p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.trail-mission-brief {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+.trail-mission-brief h2 {
+  font-size: 1.25rem;
+}
+
+.lesson-layout {
+  display: block;
+  width: 100%;
+  max-width: 64rem;
+  padding: 0 2rem 6rem;
+}
+
+.lesson-nav {
+  position: fixed;
+  top: 5rem;
+  bottom: 0;
+  left: 0;
+  z-index: 74;
+  width: 18rem;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 0;
+  padding: 1rem;
+  background: transparent;
+}
+
+.lesson-nav > a:not(.back-home) {
+  border-top-color: color-mix(in srgb, var(--line) 70%, transparent);
+  border-radius: 0.65rem;
+}
+
+.lesson-nav a.current {
+  background: color-mix(in srgb, var(--cyan) 11%, transparent);
+}
+
+.lesson-content {
+  width: 100%;
+}
+
+.lesson-section {
+  scroll-margin-top: 5.5rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+}
+
+.lesson-section:first-child {
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.lesson-section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.next-mission,
+.boss-card {
+  border-radius: 1rem;
+}
+
+.track-menu-backdrop {
+  display: none;
+}
+
+/* Tablets e celulares */
+@media (max-width: 1023px) {
+  .home-page > .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-inline: 1.25rem;
+  }
+
+  .home-page > .site-header nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding: 3.75rem 1.25rem;
+  }
+
+  .query-console {
+    width: 100%;
+    max-width: 42rem;
+  }
+
+  .trail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .track-brand-panel {
+    display: none;
+  }
+
+  .track-topbar {
+    left: 0;
+    height: 4.5rem;
+    padding-inline: 1rem;
+  }
+
+  .track-menu-button {
+    display: grid;
+  }
+
+  .trail-page {
+    padding-left: 0;
+  }
+
+  .trail-hero {
+    padding: 7rem 1.25rem 2rem;
+  }
+
+  .lesson-layout {
+    padding: 0 1.25rem 5rem;
+  }
+
+  .lesson-nav {
+    top: 4.5rem;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    display: flex;
+    width: min(18rem, 86vw);
+    grid-template-columns: none;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: 18px 0 45px rgba(4, 13, 29, 0.22);
+    transform: translateX(-105%);
+    transition: transform 0.22s ease;
+  }
+
+  .trail-menu-open .lesson-nav {
+    transform: translateX(0);
+  }
+
+  .track-menu-backdrop {
+    position: fixed;
+    inset: 4.5rem 0 0;
+    z-index: 84;
+    display: block;
+    border: 0;
+    background: rgba(4, 10, 20, 0.45);
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 680px) {
+  .brand-mark {
+    width: 2.55rem;
+    height: 2.55rem;
+    border-radius: 0.78rem;
+  }
+
+  .brand strong {
+    font-size: 0.91rem;
+  }
+
+  .brand small {
+    font-size: 0.5rem;
+    letter-spacing: 0.11em;
+  }
+
+  .hero h1 {
+    font-size: 2.55rem;
+  }
+
+  .hero-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section {
+    padding: 4rem 1.125rem;
+  }
+
+  .trail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trail-hero {
+    padding: 6.5rem 1.125rem 1.5rem;
+  }
+
+  .trail-hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .lesson-layout {
+    padding-inline: 1.125rem;
+  }
+
+  .lesson-section,
+  .lesson-section:first-child {
+    padding: 1.4rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .home-page > .site-header {
+    padding-inline: 0.9rem;
+  }
+
+  .brand {
+    gap: 0.65rem;
+  }
+
+  .hero {
+    padding-inline: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .hero-facts span,
+  .hero-facts span:first-child {
+    padding: 0.7rem;
+  }
+
+  .track-heading small {
+    letter-spacing: 0.09em;
+  }
+
+  .lesson-section,
+  .lesson-section:first-child {
+    padding: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lesson-nav,
+  .theme-toggle {
+    transition: none;
+  }
+}
