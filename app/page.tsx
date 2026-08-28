@@ -21,18 +21,16 @@ export default function Home() {
     <main className="home-page">
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="site-header">
-        <Link className="brand" href="/" aria-label="Página inicial">
+        <Link className="brand" href="/" aria-label="Página inicial do Professor Dayvson">
           <span className="brand-mark">D</span>
           <span><strong>Professor Dayvson</strong><small>Central de Aulas</small></span>
         </Link>
-        <div className="header-actions">
-          <nav aria-label="Navegação principal">
-            <a href="#trilhas">Trilhas</a>
-            <Link href="/trilhas/select">Laboratório</Link>
-            <a href="#downloads">Downloads</a>
-          </nav>
-          <ThemeSwitch />
-        </div>
+        <nav aria-label="Navegação principal">
+          <a href="#como-estudar">Como estudar</a>
+          <a href="#trilhas">Trilhas</a>
+          <Link href="/trilhas/projeto-final">Projeto final</Link>
+        </nav>
+        <ThemeSwitch />
       </header>
 
       <section className="hero" id="conteudo">
@@ -53,6 +51,7 @@ export default function Home() {
             <span><strong>10</strong> trilhas</span>
             <span><strong>41</strong> aulas</span>
             <span><strong>1</strong> projeto evolutivo</span>
+            <span><strong>SQL</strong> para baixar</span>
           </div>
         </div>
 
@@ -94,7 +93,7 @@ export default function Home() {
         <p className="prototype-note"><span>●</span> Todas as 10 trilhas estão completas e conectadas em sequência.</p>
       </section>
 
-      <section className="section method-section">
+      <section className="section method-section" id="como-estudar">
         <div className="section-heading compact">
           <div><span className="section-kicker">APRENDER FAZENDO</span><h2>SQL ganha sentido quando resolve algo.</h2></div>
         </div>
