@@ -147,10 +147,13 @@ body {
   grid-template-columns: 1.12fr 0.88fr;
   gap: 2.5rem;
   padding: 5rem 2rem;
-  overflow: clip;
+  overflow: visible;
 }
 
 .hero::before {
+  inset: 0 auto 0 50%;
+  width: 100vw;
+  transform: translateX(-50%);
   opacity: 0.26;
   background-size: 42px 42px;
   mask-image: linear-gradient(to right, #000, transparent 84%);

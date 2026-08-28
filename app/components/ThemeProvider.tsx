@@ -63,6 +63,14 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     : undefined;
   const trail = trailSlug ? TRAILS[trailSlug] : undefined;
 
+
+  useEffect(() => {
+    const defaultTitle = "SQL do Zero ao Avançado | Professor Dayvson";
+    document.title = trail
+      ? `Trilha ${trail.number} — ${trail.title} | Professor Dayvson`
+      : defaultTitle;
+  }, [trail]);
+
   useEffect(() => {
     const savedTheme = window.localStorage.getItem(STORAGE_KEY);
     if (savedTheme === "light" || savedTheme === "dark") setTheme(savedTheme);
